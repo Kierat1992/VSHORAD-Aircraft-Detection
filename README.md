@@ -182,6 +182,39 @@ See [docs/dataset.md](docs/dataset.md) for the full generation pipeline.
 | `notebooks/eval_swin.ipynb` | 56×56 confusion matrix, GradCAM, Top-K |
 | `notebooks/eval_latency.ipynb` | Component + pipeline latency across tiers |
 
+## Roadmap & Known Limitations
+
+This project is a first working prototype developed as a solo engineering thesis. The sections below outline known limitations and planned improvements for future development.
+
+### Detection Improvements
+
+- **Dedicated small-object head**: Current YOLOv8 struggles with very small targets (drones, birds at long range). A separate detection branch optimized for sub-32px objects would significantly improve UAV and bird detection performance.
+- **Civilian class rebalancing**: The Civilian class underperforms due to oversized, non-G2A images in the training set. Regenerating this class with proper Ground-to-Air synthetic renders would bring it in line with other categories.
+- **Expanded aircraft library**: Current coverage is 56 types. Operational deployment would require 100+ types including regional variants, newer platforms (B-21, KF-21, Su-75), and commercial airliners.
+
+### Classification & Fusion
+
+- **Feedback loop refinement**: The current unidentified detection mechanism (label oscillation threshold) is a simple heuristic. A more principled approach using entropy of the EMA distribution or a dedicated uncertainty head would improve reliability.
+- **Multi-frame crop fusion**: Currently Swin classifies individual crops. Aggregating features across multiple frames before classification (temporal attention) could improve accuracy for difficult angles.
+
+### Tracking
+
+- **Appearance-based Re-ID**: Current Re-ID uses only position and velocity prediction. Adding a lightweight appearance embedding (e.g., OSNet) would dramatically improve track recovery after prolonged occlusion.
+- **Handling extreme maneuvers**: Rapid direction changes, flare deployment, and formation splits can confuse the Kalman filter. Adaptive motion models or transformer-based trajectory prediction would help.
+
+### Engineering & Deployment
+
+- **C++ inference pipeline**: The current Python implementation is a research prototype. Production deployment in defense systems would require rewriting the inference pipeline in C++ using TensorRT C++ API and CUDA directly, targeting RTOS-compatible execution on embedded platforms.
+- **Thermal/IR sensor fusion**: The system currently operates on visible-spectrum video only. Extending to LWIR (thermal) imagery would enable night operation and improve detection of targets using IR countermeasures.
+- **Automated test suite**: Adding unit tests for tracking logic, fusion rules, and edge cases (occlusion, label oscillation, Re-ID) is necessary before any deployment beyond research use.
+- **Containerization**: Docker-based deployment for reproducible inference environments across different hardware configurations.
+
+### Dataset
+
+- **More synthetic G2A data**: Current synthetic pipeline covers standard conditions well, but needs expansion for extreme weather (heavy rain, snow, fog), nighttime IR scenarios, and dense multi-target formations.
+- **Real-world validation**: All current metrics are on synthetic/curated test sets. Field testing with actual observation camera footage is essential for validating real-world performance.
+
+> This is realistically a 2+ year effort for a dedicated team to bring from prototype to production-grade system. The current version demonstrates the architectural approach and validates the core pipeline.
 ## Citation
 
 ```bibtex
