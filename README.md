@@ -172,9 +172,9 @@ See [docs/dataset.md](docs/dataset.md) for the full generation pipeline.
 
 | Notebook | Description | GPU | Time |
 |----------|-------------|-----|------|
-| `training/01_train_strategic.ipynb` | YOLOv8l + Swin-Base | A100 | ~8h |
-| `training/02_train_tactical.ipynb` | YOLOv8m + Swin-Small | L4/T4 | ~5h |
-| `training/03_export_embedded.ipynb` | TensorRT FP16/INT8 | T4+ | ~20min |
+| `training/01_train_strategic.ipynb` | YOLOv8l + Swin-Base | A100 | ~45h |
+| `training/02_train_tactical.ipynb` | YOLOv8m + Swin-Small | L4/T4 | ~55h |
+| `training/03_export_embedded.ipynb` | TensorRT FP16/INT8 | T4+ | ~1h  |
 
 | Notebook | Description |
 |----------|-------------|
