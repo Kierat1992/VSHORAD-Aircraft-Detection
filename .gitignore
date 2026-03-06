@@ -1,0 +1,42 @@
+# Weights (large files, not shared publicly)
+weights/
+*.pt
+*.pth
+*.engine
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output
+output/
+results/
+*.mp4
+*.avi
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+datasets/
+*.zip
