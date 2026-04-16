@@ -78,7 +78,7 @@ for det in results["detections"]:
 
 Pre-trained weights are **not included** in this repository due to size and IP protection.
 
-**Available upon request for research purposes** — contact: `YOUR_EMAIL`
+**Available upon request for research purposes** — contact: `jedrek.rychter@gmail.com`
 
 ```
 weights/
