@@ -113,7 +113,7 @@ Key statistics:
 - 140,000 images total
 - Perfectly balanced: 2,500 images per class
 - Offline augmentations dominate (66.3%) to achieve balance
-- Train/Val/Test split: ~75/17/8%
+- Train/Val/Test split: ~78/15/7%
 
 ## Augmentation Strategy
 
