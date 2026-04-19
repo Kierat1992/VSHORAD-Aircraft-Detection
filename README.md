@@ -161,9 +161,9 @@ VSHORAD-Aircraft-Detection/
 
 The training dataset was generated using a hybrid pipeline combining real photographs, Blender-rendered synthetic images, and offline augmentations:
 
-- **YOLO dataset**: 36,271 images across 12 meta-categories (75/17/8% train/val/test split)
+- **YOLO dataset**: 42,918 images across 12 meta-categories (78/15/7% train/val/test split)
 - **Swin dataset**: 140,000 images across 56 fine-grained types, balanced at 2,500 images/class
-- **Synthetic data**: ~180,000 renders in Blender with randomized backgrounds, lighting, camera angles, and atmospheric conditions
+- **Synthetic data**: About 13,000 renders in Blender with randomized backgrounds, lighting, camera angles, and atmospheric conditions
 - **Real data**: Curated photographs for validation and domain adaptation
 
 See [docs/dataset.md](docs/dataset.md) for the full generation pipeline.
