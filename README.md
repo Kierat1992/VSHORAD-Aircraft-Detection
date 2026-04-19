@@ -46,7 +46,7 @@ The Feedback Loop module aggregates Swin classification probabilities via Expone
 
 ```bash
 # Clone and install
-git clone https://github.com/YOUR_USERNAME/VSHORAD-Aircraft-Detection.git
+git clone https://github.com/Kierat1992/VSHORAD-Aircraft-Detection.git
 cd VSHORAD-Aircraft-Detection
 pip install -r requirements.txt
 
