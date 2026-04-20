@@ -175,8 +175,8 @@ class FeedbackConfig:
     and Swin classifications are fused together.
     """
     # Classification routing
-    always_classify: List[int] = field(default_factory=lambda: [0, 3])
-    classify_if_uncertain: List[int] = field(default_factory=lambda: [1, 2, 4])
+    always_classify: List[int] = field(default_factory=lambda: [0, 1, 2, 3, 4])
+    classify_if_uncertain: List[int] = field(default_factory=lambda: []) #In Vshorad helicopters appear often
     never_classify: List[int] = field(default_factory=lambda: [5, 6, 7, 8, 9, 10, 11])
     uncertainty_threshold: float = 0.70
 
