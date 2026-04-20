@@ -92,6 +92,7 @@ weights/
     ├── yolov8m_640_fp16.engine
     └── swin_small_224_fp16.engine
 ```
+For details on weight provenance, TensorRT engine portability, and the Python inference layer's current scope, see [docs/deployment-notes.md](docs/deployment-notes.md).
 
 ## Results
 
