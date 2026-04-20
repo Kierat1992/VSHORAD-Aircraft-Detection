@@ -55,8 +55,8 @@ def main():
     parser.add_argument(
         "--output",
         type=str,
-        default="output/",
-        help="Output directory (default: output/)",
+        default=None,
+        help="Output directory (default: Video/Processed/{tier}/)",
     )
     parser.add_argument(
         "--yolo-weights",
@@ -100,6 +100,10 @@ def main():
     yolo_path = args.yolo_weights or defaults["yolo"]
     swin_path = args.swin_weights or defaults["swin"]
 
+    # Tier-specific default output directory
+    output_dir = args.output or f"Video/Processed/{tier.value}"
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
+
     # Validate paths
     for name, path in [("YOLO weights", yolo_path), ("Swin weights", swin_path)]:
         if not Path(path).exists():
@@ -124,7 +128,7 @@ def main():
     stats = process_video(
         system=system,
         video_path=args.video,
-        output_dir=args.output,
+        output_dir=output_dir,
         save_video=not args.no_video,
         save_json=not args.no_json,
         max_frames=args.max_frames,
