@@ -100,7 +100,7 @@ class SwinClassifier:
         Strategic checkpoints use keys: 'model_state_dict', 'ema_state_dict'
         Tactical checkpoints use keys: 'model', 'ema'
         """
-        checkpoint = torch.load(weights_path, map_location=self.device)
+        checkpoint = torch.load(weights_path, map_location=self.device, weights_only=False) # Fix to load .pth file with additional objects, not only raw tensor
 
         # Determine the correct state dict key
         state_dict = None
